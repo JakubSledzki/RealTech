@@ -22,21 +22,21 @@ To repozytorium zawiera **mod główny (Core)**. Rozszerzenia na kolejne ery (In
 
 ### Łańcuch przetwarzania rud
 
-1. Wydobycie rudy → `dirty_*_chunk`
-2. Płukanie → `clean_*_chunk`
+1. Wydobycie rudy → `dirty_*_clump`
+2. Płukanie → `clean_*_clump`
 3. Kruszenie → `crushed_*_ore` (mała szansa na nuggety)
 4. Opcjonalne wzbogacanie → `*_concentrate` (2× wydajność przy topieniu)
 5. Topienie → ingoty
 
 Gemy:
 
-- `clean_*_chunk` + woda + materiał ścierny → oszlifowany gem w **Lapidary Machine**  
+- `clean_*_clump` + woda + materiał ścierny → oszlifowany gem w **Lapidary Machine**  
   (lepsze materiały ścierne = szybsze cięcie)
 
 ### Ręczne przetwarzanie (epoka kamienia)
 
-- **Ore Sieve**: stań w wodzie, trzymaj brudny chunk w off‑hand, kliknij PPM, aby wyczyścić.
-- **Hand Crusher**: ręczny blok, który zmienia czyste chunki w kruszoną rudę poprzez kręcenie korbą.
+- **Ore Sieve**: stań w wodzie, trzymaj brudny clump w off‑hand, kliknij PPM, aby wyczyścić.
+- **Hand Crusher**: ręczny blok, który zmienia czyste clumpi w kruszoną rudę poprzez kręcenie korbą.
 
 Do rozpoczęcia przetwarzania nie jest potrzebny żaden metal.
 
@@ -178,7 +178,7 @@ Zalecane gałęzie:
 ## Aktualny status
 
 - [ ] Konfiguracja projektu i podstawowe rejestracje
-- [ ] Materiały i przedmioty (rudy, chunki, ingoty, gemy, blachy, pyły)
+- [ ] Materiały i przedmioty (rudy, clumpi, ingoty, gemy, blachy, pyły)
 - [ ] Ręczne przetwarzanie (ore sieve, hand crusher)
 - [ ] Maszyny zasilane (washer, crusher, concentrator, smelter, lapidary, press itd.)
 - [ ] Sieć rotacyjna (SU/RPM, wały, przekładnie, silnik)

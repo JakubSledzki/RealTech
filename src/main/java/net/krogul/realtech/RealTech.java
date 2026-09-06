@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
+import net.krogul.realtech.item.ModCreativeModeTabs;
+import net.krogul.realtech.item.ModItems;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -51,6 +53,9 @@ public class RealTech {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        ModItems.register(modEventBus);
+        ModCreativeModeTabs.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -64,7 +69,14 @@ public class RealTech {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.dirty_iron_clump);
+            event.accept(ModItems.dirty_copper_clump);
+            event.accept(ModItems.dirty_gold_clump);
+            event.accept(ModItems.clean_iron_clump);
+            event.accept(ModItems.clean_copper_clump);
+            event.accept(ModItems.clean_gold_clump);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

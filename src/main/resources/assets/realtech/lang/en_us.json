@@ -1,0 +1,10 @@
+{
+  "item.realtech.ore_sieve": "ore sieve",
+  "item.realtech.dirty_iron_clump": "Dirty Iron Clump",
+  "item.realtech.dirty_copper_clump": "Dirty Copper Clump",
+  "item.realtech.dirty_gold_clump": "Dirty Gold Clump",
+  "item.realtech.clean_iron_clump": "Clean Iron Clump",  
+  "item.realtech.clean_gold_clump": "Clean Gold Clump",  
+  "item.realtech.clean_copper_clump": "Clean Copper Clump",
+  "creative_mode_tab.realtech": "RealTech"
+}
