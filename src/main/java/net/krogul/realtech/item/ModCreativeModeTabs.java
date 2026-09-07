@@ -17,15 +17,21 @@ public class ModCreativeModeTabs {
     public static final Supplier<CreativeModeTab> REALTECH_TAB = CREATIVE_MODE_TAB.register("realtech_tab",
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.ore_sieve.get()))
-                    .title(Component.translatable("creativetab.realtech.realtech_tab"))
+                    .title(Component.translatable("RealTech"))
                     .displayItems((params, output) -> {
                         output.accept(ModItems.ore_sieve.get());
+                        output.accept(ModItems.sandpaper.get());
                         output.accept(ModItems.dirty_iron_clump.get());
                         output.accept(ModItems.dirty_copper_clump.get());
                         output.accept(ModItems.dirty_gold_clump.get());
                         output.accept(ModItems.clean_iron_clump.get());
                         output.accept(ModItems.clean_copper_clump.get());
                         output.accept(ModItems.clean_gold_clump.get());
+                        output.accept(ModItems.ruby_gem.get());
+                        output.accept(ModItems.saphire_gem.get());
+                        output.accept(ModItems.uncut_ruby_gem.get());
+                        output.accept(ModItems.uncut_saphire_gem.get());
+
                     }).build());
 
     public static void register(IEventBus eventBus) {

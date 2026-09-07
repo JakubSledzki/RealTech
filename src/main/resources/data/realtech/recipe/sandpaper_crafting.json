@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "misc",
+    "pattern": [
+        "   ",
+        "   ",
+        "sp"
+    ],
+    "key": {
+        "s": {
+            "tag": "minecraft:sand"
+        },
+        "p": {
+            "item": "minecraft:paper"
+        }
+    },
+    "result": {
+        "count": 1,
+        "id": "realtech:sandpaper"
+    }
+}

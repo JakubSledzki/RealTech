@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
+import net.krogul.realtech.block.ModBlocks;
 import net.krogul.realtech.item.ModCreativeModeTabs;
 import net.krogul.realtech.item.ModItems;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -54,6 +55,7 @@ public class RealTech {
         NeoForge.EVENT_BUS.register(this);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
 
         // Register the item to a creative tab
@@ -76,8 +78,20 @@ public class RealTech {
             event.accept(ModItems.clean_iron_clump);
             event.accept(ModItems.clean_copper_clump);
             event.accept(ModItems.clean_gold_clump);
+            event.accept(ModItems.ruby_gem);
+            event.accept(ModItems.saphire_gem);
+            event.accept(ModItems.uncut_ruby_gem);
+            event.accept(ModItems.uncut_saphire_gem);
+        
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
+            event.accept(ModBlocks.ore_ruby_block);
+            event.accept(ModBlocks.ore_saphire_block);
         }
     }
+
+
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
