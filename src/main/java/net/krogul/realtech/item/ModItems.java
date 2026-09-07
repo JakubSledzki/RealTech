@@ -1,6 +1,7 @@
 package net.krogul.realtech.item;
 
 import net.krogul.realtech.RealTech;
+import net.krogul.realtech.item.custom.OreSieve;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -10,7 +11,7 @@ public class ModItems {
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(RealTech.MOD_ID);
 
     public static final DeferredItem<Item> ore_sieve = ITEMS.register("ore_sieve",
-            () -> new Item(new Item.Properties()));
+            () -> new OreSieve(new Item.Properties().durability(64)));
             
     public static final DeferredItem<Item> dirty_iron_clump = ITEMS.register("dirty_iron_clump",
             () -> new Item(new Item.Properties()));
