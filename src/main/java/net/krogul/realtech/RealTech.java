@@ -82,7 +82,8 @@ public class RealTech {
             event.accept(ModItems.saphire_gem);
             event.accept(ModItems.uncut_ruby_gem);
             event.accept(ModItems.uncut_saphire_gem);
-        
+            event.accept(ModItems.uncut_diamond_gem);
+
         }
 
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
