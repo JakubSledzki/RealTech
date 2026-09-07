@@ -28,9 +28,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.clean_copper_clump.get());
                         output.accept(ModItems.clean_gold_clump.get());
                         output.accept(ModItems.ruby_gem.get());
-                        output.accept(ModItems.saphire_gem.get());
+                        output.accept(ModItems.sapphire_gem.get());
                         output.accept(ModItems.uncut_ruby_gem.get());
-                        output.accept(ModItems.uncut_saphire_gem.get());
+                        output.accept(ModItems.uncut_sapphire_gem.get());
                         output.accept(ModItems.uncut_diamond_gem.get());
 
                     }).build());

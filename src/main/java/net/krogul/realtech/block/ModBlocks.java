@@ -25,7 +25,7 @@ public class ModBlocks {
             .requiresCorrectToolForDrops()
             .sound(SoundType.STONE)));
 
-    public static final DeferredBlock<Block> ore_saphire_block = registerBlock("ore_saphire_block",
+    public static final DeferredBlock<Block> ore_sapphire_block = registerBlock("ore_sapphire_block",
             () -> new Block(BlockBehaviour.Properties.of()
             .strength(3.0f)
             .requiresCorrectToolForDrops()

@@ -38,13 +38,13 @@ public class ModItems {
         public static final DeferredItem<Item> ruby_gem = ITEMS.register("ruby_gem",
                 () -> new Item(new Item.Properties()));
 
-        public static final DeferredItem<Item> saphire_gem = ITEMS.register("saphire_gem",
+        public static final DeferredItem<Item> sapphire_gem = ITEMS.register("sapphire_gem",
                 () -> new Item(new Item.Properties()));
         
         public static final DeferredItem<Item> uncut_ruby_gem = ITEMS.register("uncut_ruby_gem",
                 () -> new Item(new Item.Properties()));
 
-        public static final DeferredItem<Item> uncut_saphire_gem = ITEMS.register("uncut_saphire_gem",
+        public static final DeferredItem<Item> uncut_sapphire_gem = ITEMS.register("uncut_sapphire_gem",
                 () -> new Item(new Item.Properties()));
 
         public static final DeferredItem<Item> uncut_diamond_gem = ITEMS.register("uncut_diamond_gem",

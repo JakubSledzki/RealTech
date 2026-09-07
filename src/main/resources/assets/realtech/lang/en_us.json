@@ -7,15 +7,15 @@
   "item.realtech.clean_gold_clump": "Clean Gold Clump",  
   "item.realtech.clean_copper_clump": "Clean Copper Clump",
   "item.realtech.ruby_gem": "Ruby",
-  "item.realtech.saphire_gem": "Sapphire",
+  "item.realtech.sapphire_gem": "Sapphire",
   "item.realtech.uncut_ruby_gem": "Uncut Ruby",
-  "item.realtech.uncut_saphire_gem": "Uncut Sapphire",
+  "item.realtech.uncut_sapphire_gem": "Uncut Sapphire",
   "item.realtech.uncut_diamond_gem": "Uncut Diamond",
   "item.realtech.sandpaper": "Sandpaper",
   
 
   "block.realtech.ore_ruby_block": "Ruby Ore",
-  "block.realtech.ore_saphire_block": "Sapphire Ore",
+  "block.realtech.ore_sapphire_block": "Sapphire Ore",
 
   "creative_mode_tab.realtech": "RealTech"
 

@@ -74,8 +74,8 @@ public class SandpaperEventHandler {
     private static ItemStack getCutGem(ItemStack uncutGem) {
         if (uncutGem.is(ModItems.uncut_ruby_gem.get())) {
             return new ItemStack(ModItems.ruby_gem.get());
-        } else if (uncutGem.is(ModItems.uncut_saphire_gem.get())) {
-            return new ItemStack(ModItems.saphire_gem.get());
+        } else if (uncutGem.is(ModItems.uncut_sapphire_gem.get())) {
+            return new ItemStack(ModItems.sapphire_gem.get());
         } else if (uncutGem.is(ModItems.uncut_diamond_gem.get())) {
             return new ItemStack(Items.DIAMOND);
         }

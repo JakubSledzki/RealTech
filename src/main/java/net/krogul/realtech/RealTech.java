@@ -79,16 +79,16 @@ public class RealTech {
             event.accept(ModItems.clean_copper_clump);
             event.accept(ModItems.clean_gold_clump);
             event.accept(ModItems.ruby_gem);
-            event.accept(ModItems.saphire_gem);
+            event.accept(ModItems.sapphire_gem);
             event.accept(ModItems.uncut_ruby_gem);
-            event.accept(ModItems.uncut_saphire_gem);
+            event.accept(ModItems.uncut_sapphire_gem);
             event.accept(ModItems.uncut_diamond_gem);
 
         }
 
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
             event.accept(ModBlocks.ore_ruby_block);
-            event.accept(ModBlocks.ore_saphire_block);
+            event.accept(ModBlocks.ore_sapphire_block);
         }
     }
 

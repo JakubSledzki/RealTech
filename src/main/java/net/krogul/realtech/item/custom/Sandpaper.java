@@ -48,7 +48,7 @@ public class Sandpaper extends Item {
     private boolean isUncutGem(ItemStack stack) {
         if (stack.isEmpty()) return false;
         return stack.is(ModItems.uncut_ruby_gem.get()) ||
-               stack.is(ModItems.uncut_saphire_gem.get()) ||
+               stack.is(ModItems.uncut_sapphire_gem.get()) ||
                stack.is(ModItems.uncut_diamond_gem.get());
     }
 
