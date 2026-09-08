@@ -10,6 +10,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.server.ReloadableServerRegistries.Holder;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.BlastingRecipe;
@@ -24,11 +25,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         super(output, registries);
     }
     
-    @Override 
+    @Override
     protected void buildRecipes(RecipeOutput recipeOutput){
-                
+
+        // Ore Sieve Recipe
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ore_sieve.get())
-                .pattern("   ")
                 .pattern("sss")
                 .pattern("lll")
                 .define('s', Items.STICK)
@@ -36,6 +37,65 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
                 .save(recipeOutput);
 
+        // Sandpaper Recipe
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.sandpaper.get())
+                .pattern("   ")
+                .pattern("   ")
+                .pattern("sp ")
+                .define('s', ItemTags.SAND)
+                .define('p', Items.PAPER)
+                .unlockedBy(getHasName(Items.PAPER), has(Items.PAPER))
+                .save(recipeOutput);
+
+        // Iron Ingot from Smelting
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.clean_iron_clump.get()), RecipeCategory.MISC, Items.IRON_INGOT, 0.7f, 200)
+                .unlockedBy(getHasName(ModItems.clean_iron_clump.get()), has(ModItems.clean_iron_clump.get()))
+                .save(recipeOutput, RealTech.MOD_ID + ":" + getItemName(Items.IRON_INGOT) + "_from_smelting");
+
+        // Iron Ingot from Blasting
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.clean_iron_clump.get()), RecipeCategory.MISC, Items.IRON_INGOT, 0.7f, 100)
+                .unlockedBy(getHasName(ModItems.clean_iron_clump.get()), has(ModItems.clean_iron_clump.get()))
+                .save(recipeOutput, RealTech.MOD_ID + ":" + getItemName(Items.IRON_INGOT) + "_from_blasting");
+
+        // Copper Ingot from Smelting
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.clean_copper_clump.get()), RecipeCategory.MISC, Items.COPPER_INGOT, 0.7f, 200)
+                .unlockedBy(getHasName(ModItems.clean_copper_clump.get()), has(ModItems.clean_copper_clump.get()))
+                .save(recipeOutput, RealTech.MOD_ID + ":" + getItemName(Items.COPPER_INGOT) + "_from_smelting");
+
+        // Copper Ingot from Blasting
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.clean_copper_clump.get()), RecipeCategory.MISC, Items.COPPER_INGOT, 0.7f, 100)
+                .unlockedBy(getHasName(ModItems.clean_copper_clump.get()), has(ModItems.clean_copper_clump.get()))
+                .save(recipeOutput, RealTech.MOD_ID + ":" + getItemName(Items.COPPER_INGOT) + "_from_blasting");
+
+        // Gold Ingot from Smelting
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.clean_gold_clump.get()), RecipeCategory.MISC, Items.GOLD_INGOT, 1.0f, 200)
+                .unlockedBy(getHasName(ModItems.clean_gold_clump.get()), has(ModItems.clean_gold_clump.get()))
+                .save(recipeOutput, RealTech.MOD_ID + ":" + getItemName(Items.GOLD_INGOT) + "_from_smelting");
+
+        // Gold Ingot from Blasting
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.clean_gold_clump.get()), RecipeCategory.MISC, Items.GOLD_INGOT, 1.0f, 100)
+                .unlockedBy(getHasName(ModItems.clean_gold_clump.get()), has(ModItems.clean_gold_clump.get()))
+                .save(recipeOutput, RealTech.MOD_ID + ":" + getItemName(Items.GOLD_INGOT) + "_from_blasting");
+
+        // Ruby from Ore Block Smelting
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.ore_ruby_block.get()), RecipeCategory.MISC, ModItems.ruby_gem.get(), 1.0f, 200)
+                .unlockedBy(getHasName(ModBlocks.ore_ruby_block.get()), has(ModBlocks.ore_ruby_block.get()))
+                .save(recipeOutput, RealTech.MOD_ID + ":ruby_gem_from_smelting");
+
+        // Sapphire from Ore Block Smelting
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.ore_sapphire_block.get()), RecipeCategory.MISC, ModItems.sapphire_gem.get(), 1.0f, 200)
+                .unlockedBy(getHasName(ModBlocks.ore_sapphire_block.get()), has(ModBlocks.ore_sapphire_block.get()))
+                .save(recipeOutput, RealTech.MOD_ID + ":sapphire_gem_from_smelting");
+
+        // Ruby from Ore Block Blasting
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModBlocks.ore_ruby_block.get()), RecipeCategory.MISC, ModItems.ruby_gem.get(), 1.0f, 100)
+                .unlockedBy(getHasName(ModBlocks.ore_ruby_block.get()), has(ModBlocks.ore_ruby_block.get()))
+                .save(recipeOutput, RealTech.MOD_ID + ":ruby_gem_from_blasting");
+
+        // Sapphire from Ore Block Blasting
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModBlocks.ore_sapphire_block.get()), RecipeCategory.MISC, ModItems.sapphire_gem.get(), 1.0f, 100)
+                .unlockedBy(getHasName(ModBlocks.ore_sapphire_block.get()), has(ModBlocks.ore_sapphire_block.get()))
+                .save(recipeOutput, RealTech.MOD_ID + ":sapphire_gem_from_blasting");
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

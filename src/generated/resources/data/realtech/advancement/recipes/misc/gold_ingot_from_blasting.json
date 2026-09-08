@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_clean_gold_clump": {
+      "conditions": {
+        "items": [
+          {
+            "items": "realtech:clean_gold_clump"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "realtech:gold_ingot_from_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_clean_gold_clump"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "realtech:gold_ingot_from_blasting"
+    ]
+  }
+}

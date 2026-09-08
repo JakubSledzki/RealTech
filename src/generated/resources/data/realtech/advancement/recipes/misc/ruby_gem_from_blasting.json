@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ore_ruby_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "realtech:ore_ruby_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "realtech:ruby_gem_from_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ore_ruby_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "realtech:ruby_gem_from_blasting"
+    ]
+  }
+}
