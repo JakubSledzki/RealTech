@@ -2,6 +2,7 @@ package net.krogul.realtech.item;
 
 import java.util.function.Supplier;
 
+import net.krogul.realtech.block.ModBlocks;
 import net.krogul.realtech.RealTech;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -32,6 +33,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.uncut_ruby_gem.get());
                         output.accept(ModItems.uncut_sapphire_gem.get());
                         output.accept(ModItems.uncut_diamond_gem.get());
+                        output.accept(ModBlocks.ore_ruby_block.get());
+                        output.accept(ModBlocks.ore_sapphire_block.get());
 
                     }).build());
 

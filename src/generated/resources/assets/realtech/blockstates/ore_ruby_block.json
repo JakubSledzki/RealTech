@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "realtech:block/ore_ruby_block"
+    }
+  }
+}
