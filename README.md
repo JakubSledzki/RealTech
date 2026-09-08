@@ -1,243 +1,553 @@
 # RealTech Core
 
-**RealTech Core** to mod techniczny do Minecrafta (1.21.1, NeoForge), skupiony na realistycznej, inżynierskiej progresji:
+**RealTech Core** is a technical Minecraft mod for version 1.21.1 using NeoForge. The project focuses on realistic, engineering-style progression, resource processing, and the gradual development of industrial systems.
 
-- Ujednolicone materiały (jedno żelazo, jedna miedź itd.)
-- Brak bezpośrednich dropów rudy/gemów – wszystko musi przejść przez przetwarzanie
-- Przetwarzanie ręczne (kamień/żelazo) → automatyzacja mechaniczna → energia parowa
-- Sieć mocy rotacyjnej (SU/RPM) z wałami, przekładniami i silnikami
-- Rozszerzalna baza pod przyszłe dodatki (paliwa ciekłe, energia jądrowa, fuzja, egzotyka)
+The mod is designed as the foundation for future technology add-ons such as:
 
-To repozytorium zawiera **mod główny (Core)**. Rozszerzenia na kolejne ery (Industry, Nuclear, Fusion, Exotic) będą osobnymi modami‑addonami.
+- Industry
+- Nuclear
+- Fusion
+- Exotic technology
+
+Each major technological era may eventually be developed as a separate add-on mod.
+
+> **Current version:** 0.2.0  
+> **Minecraft:** 1.21.1  
+> **Loader:** NeoForge  
+> **Java:** 21  
+> **License:** MIT
 
 ---
 
-## Funkcje (zakres Core v1)
+## Project Vision
 
-### Materiały i rudy
+RealTech Core aims to introduce a more structured and believable progression system to Minecraft:
 
-- Metale: żelazo, miedź, złoto, cyna, cynk, ołów, srebro  
-- Gemy: diament, szmaragd, rubin, szafir  
-- Wszystko ujednolicone przez tagi (`c:ingots/*`, `c:gems/*`, `c:ores/*`)
+- Materials are unified through common tags.
+- Ores and resources are processed instead of being converted directly into final materials.
+- Early progression relies on manual processing.
+- Later progression will introduce mechanical power and steam technology.
+- Data generation is used to create recipes, tags, models, blockstates, loot tables, and other resources.
+- The project is designed to be extended by future add-on mods.
 
-### Łańcuch przetwarzania rud
+The mod is currently in active development. Many systems described in the long-term design are planned but have not yet been implemented.
 
-1. Wydobycie rudy → `dirty_*_clump`
-2. Płukanie → `clean_*_clump`
-3. Kruszenie → `crushed_*_ore` (mała szansa na nuggety)
-4. Opcjonalne wzbogacanie → `*_concentrate` (2× wydajność przy topieniu)
-5. Topienie → ingoty
+---
 
-Gemy:
+## Current Features
 
-- `clean_*_clump` + woda + materiał ścierny → oszlifowany gem w **Lapidary Machine**  
-  (lepsze materiały ścierne = szybsze cięcie)
+Version 0.2.0 contains the initial foundation of the mod.
 
-### Ręczne przetwarzanie (epoka kamienia)
+### Materials and Items
 
-- **Ore Sieve**: stań w wodzie, trzymaj brudny clump w off‑hand, kliknij PPM, aby wyczyścić.
-- **Hand Crusher**: ręczny blok, który zmienia czyste clumpi w kruszoną rudę poprzez kręcenie korbą.
+The current implementation includes selected materials and processing items such as:
 
-Do rozpoczęcia przetwarzania nie jest potrzebny żaden metal.
+- Iron
+- Copper
+- Gold
+- Ruby
+- Sapphire
+- Diamond
+- Dirty ore clumps
+- Clean ore clumps
+- Uncut gems
+- Cut gems
+- Sandpaper
+- Ore Sieve
 
-### Maszyny zasilane
+The material list will be expanded in future versions.
 
-Wszystkie maszyny rotacyjne dzielą:
+### Current Processing
 
-- Zakres RPM: 32–256 (globalny limit 256)
-- Stałe wymaganie SU do działania
-- Prędkość pracy skaluje się z RPM
+The current version includes the initial ore and gem processing concepts:
 
-Maszyny m.in.:
+- Ore sieve processing
+- Clean and dirty ore clumps
+- Smelting recipes
+- Blasting recipes
+- Basic gem processing
+- Uncut and cut gems
+- Abrasive materials such as sandpaper
+
+More advanced processing machines and multi-stage production chains will be added progressively.
+
+### Current Blocks
+
+Version 0.2.0 currently includes selected blocks such as:
+
+- Ruby Ore
+- Sapphire Ore
+
+Additional ores, machines, storage blocks, and power-system components are planned for future releases.
+
+---
+
+## Planned Features
+
+The following systems are part of the long-term development plan. They are not necessarily available in the current version.
+
+### Materials and Ores
+
+Planned metals:
+
+- Iron
+- Copper
+- Gold
+- Tin
+- Zinc
+- Lead
+- Silver
+
+Planned gems:
+
+- Diamond
+- Emerald
+- Ruby
+- Sapphire
+
+Materials will be unified through common tags such as:
+
+```text
+c:ingots/*
+c:gems/*
+c:ores/*
+```
+
+### Ore Processing Chain
+
+The planned processing chain is:
+
+```text
+Ore
+→ Dirty Clump
+→ Clean Clump
+→ Crushed Ore
+→ Concentrate
+→ Ingot
+```
+
+The intended stages include:
+
+1. Mining ore
+2. Washing or sieving
+3. Crushing
+4. Optional concentration
+5. Smelting or blasting
+
+Some materials may also provide secondary outputs such as nuggets or dusts.
+
+### Manual Processing
+
+The early game is planned to support manual processing without requiring metal tools:
+
+- **Ore Sieve** for washing dirty clumps
+- **Hand Crusher** for processing clean clumps
+- Other primitive tools and processing blocks
+
+### Powered Machines
+
+Future machines may include:
 
 - Ore Washer
-- Crusher (rudy, kamień, węgiel, rośliny)
-- Concentrator (wzbogacanie, ścieżka 2× wydajności)
-- Smelter (zasilany paliwem stałym)
-- Lapidary Machine (woda + materiał ścierny)
-- Mechanical Press (blachy, brykiety, olej roślinny)
-- Sawmill, Plant Cutter
-- Pump, Fluid Tank, Fluid Pipe
-- Coke Oven (przetwarzanie paliwa)
+- Crusher
+- Concentrator
+- Smelter
+- Lapidary Machine
+- Mechanical Press
+- Sawmill
+- Plant Cutter
+- Pump
+- Fluid Tank
+- Fluid Pipe
+- Coke Oven
+- Conveyor Belt
 
-### Mechaniczny system napędowy
+### Mechanical Power System
 
-- **Steam Boiler**: spala paliwa stałe, grzeje wodę → para
-- **Steam Engine**: zużywa parę, generuje moc rotacyjną (SU @ RPM)
-- **Shaft**: podstawowy łącznik rotacyjny
-- **Direction Gearbox**: 6‑stronny hub 1:1, zmienia kierunek (poziom/pion)
-- **Ratio Gearbox**: przelotowy z konfigurowalnymi przełożeniami (1:3, 1:2, 1:1, 2:1, 3:1), zamienia SU ↔ RPM
+The planned mechanical power system will use a rotational network based on SU and RPM.
 
-Zasady:
+Planned components include:
 
-- Maksymalne RPM: 256
-- Maszyny wymagają minimalnego SU i RPM ≥ 32
-- Za mało SU → maszyny stają; wyższe RPM → szybsza praca
+- Shafts
+- Steam Boiler
+- Steam Engine
+- Direction Gearbox
+- Ratio Gearbox
+- Mechanical machines powered by rotational energy
 
-### Magazyny i logistyka
+The planned system is based on the following principles:
 
-- Buffer Crate (mały, konfigurowalny)
-- RealTech Vault (multiblok, duży magazyn, filtry)
-- Conveyor Belt (opcjonalnie, transport przedmiotów zasilany rotacyjnie)
+- Machines require a minimum amount of SU.
+- Machines require a minimum RPM.
+- Higher RPM increases processing speed.
+- Gearboxes can change direction or modify the speed-to-power ratio.
+- The global RPM limit is planned to be 256.
 
----
-
-## Stack technologiczny
-
-- **Minecraft:** 1.21.1  
-- **Loader:** NeoForge  
-- **Język:** Java 21  
-- **IDE:** VS Code (Java Extension Pack, Gradle)  
-- **Build tool:** Gradle (NeoForge MDK)
+These values may change during development and balancing.
 
 ---
 
-## Rozpoczęcie pracy
+## Data Generation
 
-### Wymagania
+RealTech Core uses Java-based data generation instead of manually creating most JSON resources.
+
+The data generation system is used for:
+
+- Recipes
+- Item tags
+- Block tags
+- Fluid tags
+- Item models
+- Block models
+- Blockstates
+- Loot tables
+- World generation
+- Other generated resources
+
+The main data-generation classes are located in:
+
+```text
+src/main/java/net/krogul/realtech/datagen/
+```
+
+Current data providers include:
+
+- `DataGenerators.java`
+- `ModBlockLootTableProvider.java`
+- `ModBlockStateProvider.java`
+- `ModBlockTagProvider.java`
+- `ModItemModelProvider.java`
+- `ModItemTagProvider.java`
+- `ModRecipeProvider.java`
+
+To regenerate data, run:
+
+```bash
+./gradlew runData
+```
+
+Generated files are written to:
+
+```text
+src/generated/resources/
+```
+
+Generated resources should generally not be edited manually. Changes should be made in the appropriate data provider and then regenerated.
+
+---
+
+## Project Structure
+
+The current project structure is organized as follows:
+
+```text
+src/
+├── generated/
+│   └── resources/
+│       ├── assets/
+│       │   └── realtech/
+│       │       ├── blockstates/
+│       │       └── models/
+│       │           ├── block/
+│       │           └── item/
+│       └── data/
+│           ├── minecraft/
+│           │   └── tags/
+│           │       └── block/
+│           └── realtech/
+│               ├── advancement/
+│               ├── loot_table/
+│               │   └── blocks/
+│               └── recipe/
+│
+└── main/
+    ├── java/
+    │   └── net/
+    │       └── krogul/
+    │           └── realtech/
+    │               ├── block/
+    │               │   └── custom/
+    │               ├── datagen/
+    │               ├── event/
+    │               ├── item/
+    │               │   └── custom/
+    │               ├── Config.java
+    │               └── RealTech.java
+    │
+    └── resources/
+        ├── assets/
+        │   └── realtech/
+        │       ├── blockstates/
+        │       ├── lang/
+        │       │   └── en_us.json
+        │       ├── models/
+        │       │   ├── block/
+        │       │   └── item/
+        │       └── textures/
+        │           ├── block/
+        │           └── item/
+        └── data/
+```
+
+The project structure will continue to evolve as additional systems are implemented.
+
+---
+
+## Technology Stack
+
+- **Minecraft:** 1.21.1
+- **Mod loader:** NeoForge
+- **Programming language:** Java 21
+- **Build system:** Gradle
+- **Modding environment:** NeoForge MDK
+- **IDE:** Visual Studio Code
+- **Data generation:** NeoForge Java data providers
+- **Version control:** Git and GitHub
+
+Recommended VS Code extensions:
+
+- Extension Pack for Java
+- Gradle for Java
+
+---
+
+## Getting Started
+
+### Requirements
 
 - JDK 21
 - Git
-- VS Code z:
-  - Extension Pack for Java
-  - Gradle for Java
+- VS Code
+- Java Extension Pack
+- Gradle for Java
 
-### Sklonuj repozytorium
+### Clone the Repository
 
 ```bash
-git clone https://github.com/JakubSledzki/RealTech.git
+git clone [https://github.com/JakubSledzki/RealTech.git](https://github.com/JakubSledzki/RealTech.git)
 cd RealTech
 ```
 
-### Konfiguracja workspace
-
-1. Otwórz folder projektu w VS Code.
-2. Pozwól Gradle zaimportować projekt.
-3. Upewnij się, że NeoForge MDK jest poprawnie skonfigurowany:
-   - `gradle.properties` ma właściwe wersje: `minecraft_version`, `neoforge_version`, `mod_version` itd.
-   - `src/main/resources/META-INF/neoforge.mods.toml` ma:
-     - `modId = "realtech_core"`
-     - odpowiednie `displayName`, `authors`, `description`.
-
-### Uruchomienie
+### Run the Client
 
 ```bash
-# Klient
 ./gradlew runClient
-
-# Serwer
-./gradlew runServer
 ```
 
-Możesz też dodać konfiguracje `runClient` i `runServer` w `launch.json` w VS Code i uruchamiać przez F5.
+On Windows, you can use:
+
+```bat
+gradlew runClient
+```
+
+### Run Data Generation
+
+```bash
+./gradlew runData
+```
+
+After running data generation, verify the contents of:
+
+```text
+src/generated/resources/
+```
 
 ---
 
-## Struktura projektu (skrót)
+## Development Workflow
 
-- `src/main/java/pl/sledzki/realtech_core/`
-  - `RealTechMod.java`
-  - `registry/` – rejestracje (bloki, przedmioty, block entities, menu, fluidy)
-  - `block/` – bloki (rudy, maszyny, napęd, fluidy)
-  - `item/` – przedmioty (Ore Sieve, materiały, narzędzia)
-  - `blockentity/` – logika maszyn
-  - `menu/` – kontenery i ekrany
-  - `recipe/` – typy i serializery receptur
-  - `power/` – sieć rotacyjna (SU/RPM)
-  - `fluid/` – zbiorniki, rury, pompy, kotły
-  - `worldgen/` – generowanie rud
-  - `config/` – konfiguracja
-  - `util/` – pomocnicze klasy
+A typical feature-development workflow is:
 
-- `src/main/resources/`
-  - `META-INF/neoforge.mods.toml`
-  - `assets/realtech_core/` – modele, tekstury, lang, dźwięki
-  - `data/realtech_core/` – receptury, loot table, tagi, worldgen
+1. Plan the feature.
+2. Add or update the required registry entries.
+3. Implement the Java logic.
+4. Add textures and manually created resource files if needed.
+5. Update the appropriate data providers.
+6. Run data generation.
+7. Start the client and test the feature.
+8. Fix bugs and balance issues.
+9. Commit the changes.
+10. Push the feature branch and open a pull request.
 
----
+Recommended branch structure:
 
-## Workflow deweloperski
+- `main` – stable versions
+- `dev` – active development
+- `feature/<name>` – individual features
 
-1. Zaplanuj funkcję (np. „Ore Washer”)
-2. Zarejestruj blok i block entity w `RTBlocks` / `RTBlockEntities`
-3. Zaimplementuj logikę w `blockentity/` (przetwarzanie, SU/RPM, zbiorniki)
-4. Dodaj menu i ekran w `menu/`
-5. Zdefiniuj receptury w `data/realtech_core/recipes/`
-6. Dodaj modele i tekstury w `assets/realtech_core/`
-7. Przetestuj w grze przez `runClient`
-8. Zcommituj i wypchnij na GitHuba
+Examples:
 
-Zalecane gałęzie:
-
-- `main` – stabilne wersje
-- `dev` – bieżący rozwój
-- Feature branchy: `feature/ore-washer`, `feature/rotational-network` itd.
+```text
+feature/ore-processing
+feature/ruby-ore
+feature/data-generation
+feature/mechanical-power
+```
 
 ---
 
-## Aktualny status
+## Current Status
 
-- [ ] Konfiguracja projektu i podstawowe rejestracje
-- [ ] Materiały i przedmioty (rudy, clumpi, ingoty, gemy, blachy, pyły)
-- [ ] Ręczne przetwarzanie (ore sieve, hand crusher)
-- [ ] Maszyny zasilane (washer, crusher, concentrator, smelter, lapidary, press itd.)
-- [ ] Sieć rotacyjna (SU/RPM, wały, przekładnie, silnik)
-- [ ] Fluidy i para (zbiorniki, rury, pompa, kocioł)
-- [ ] Generowanie świata (żyły rud)
-- [ ] Balans, tooltipy, podstawowa dokumentacja
+**Current version: 0.2.0**
 
-Szczegółowe zadania i roadmapa w [Issues](https://github.com/JakubSledzki/RealTech/issues).
+Implemented or partially implemented:
+
+- [x] Initial NeoForge project setup
+- [x] Basic mod entry point
+- [x] Initial item registration
+- [x] Initial block registration
+- [x] Ruby ore
+- [x] Sapphire ore
+- [x] Dirty ore clumps
+- [x] Clean ore clumps
+- [x] Uncut gems
+- [x] Cut gems
+- [x] Sandpaper
+- [x] Ore Sieve
+- [x] Basic smelting recipes
+- [x] Basic blasting recipes
+- [x] Initial loot tables
+- [x] Initial tags
+- [x] Item models generated through Datagen
+- [x] Block models and blockstates generated through Datagen
+- [x] Recipe generation through Datagen
+- [x] English language file
+
+Planned or not yet fully implemented:
+
+- [ ] Complete material system
+- [ ] Additional ores and gems
+- [ ] Hand Crusher
+- [ ] Powered processing machines
+- [ ] Mechanical power network
+- [ ] Steam system
+- [ ] Fluids and fluid transport
+- [ ] Storage and logistics
+- [ ] Advanced world generation
+- [ ] Configuration options
+- [ ] Balancing and progression documentation
+- [ ] Additional translations
+
+Detailed tasks and the development roadmap are available in the [Issues](https://github.com/JakubSledzki/RealTech/issues) section.
 
 ---
 
-## Konfiguracja
+## Configuration
 
-Pliki konfiguracyjne będą w:
+Configuration support is planned for future versions.
 
-- `config/realtech-core-common.toml` (ustawienia wspólne)
-- Ewentualnie osobne klient/serwer w przyszłości.
+Possible configuration options may include:
 
-Początkowo mogą zawierać:
+- Enabling or disabling specific features
+- Enabling or disabling individual machines
+- Ore generation settings
+- SU/RPM values
+- Processing speeds
+- Machine power requirements
+- Balance-related settings
 
-- Włącz/wyłącz poszczególne maszyny
-- Stałe SU/RPM (do balansu)
-- Przełączniki generowania rud
+The exact configuration structure will be documented after the system is implemented.
 
 ---
 
 ## Contributing
 
-Współpraca mile widziana:
+Contributions are welcome.
 
-- Sprawdź istniejące issue przed rozpoczęciem pracy.
-- Używaj feature branchy i otwieraj PR‑y do `dev`.
-- Trzymaj się stylu kodu i nazewnictwa z projektu.
-- Commity powinny być zwarte i opisowe.
+Before starting work:
 
-Przy większych funkcjach najpierw otwórz issue/discussion, żeby uzgodnić projekt.
+- Check existing issues.
+- Discuss large features before implementation.
+- Use a separate feature branch.
+- Follow the existing naming and code style.
+- Keep commits focused and descriptive.
+- Regenerate data after modifying data providers.
+- Test changes in a development client.
 
----
-
-## Licencja
-
-[Wybierz licencję i zostaw np.:]
-
-Ten projekt jest dostępny na licencji MIT – szczegóły w pliku [LICENSE](LICENSE).
+For larger changes, open an issue or discussion before submitting a pull request.
 
 ---
 
-## Autorzy
+## Changelog
 
-- Autor: Jakub „JakubSledzki” Śledzki  
-- Inspirowane rzeczywistą metalurgią, przetwórstwem minerałów i wczesną inżynierią przemysłową.  
-- Zbudowane z użyciem NeoForge i narzędzi społeczności moderskiej Minecrafta.
+### Version 0.2.0
+
+#### Added
+
+- Initial RealTech Core project foundation.
+- NeoForge 1.21.1 integration.
+- Initial item and block registries.
+- Ruby ore.
+- Sapphire ore.
+- Dirty ore clumps.
+- Clean ore clumps.
+- Ruby, sapphire, and diamond gem items.
+- Uncut and processed gem items.
+- Sandpaper.
+- Ore Sieve.
+- Basic smelting recipes.
+- Basic blasting recipes.
+- Initial loot tables.
+- Initial Minecraft and RealTech tags.
+- English language support.
+
+#### Data Generation
+
+- Added centralized data-generation entry point.
+- Added blockstate generation.
+- Added block model generation.
+- Added item model generation.
+- Added recipe generation.
+- Added item tag generation.
+- Added block tag generation.
+- Added loot table generation.
+- Added generated assets and data resources.
+
+#### Project Structure
+
+- Reorganized Java packages.
+- Added dedicated `datagen` package.
+- Added dedicated `event` package.
+- Added custom block package.
+- Added custom item package.
+- Added generated resources directory.
+- Updated the resource layout for future expansion.
+
+#### Planned for Future Versions
+
+The following systems are planned but are not yet part of the complete 0.2.0 feature set:
+
+- More materials and ores.
+- Complete ore-processing chains.
+- Manual crushing.
+- Powered processing machines.
+- Rotational power.
+- Steam generation.
+- Fluids and logistics.
+- Additional world-generation features.
+- Configuration options.
+- More translations.
 
 ---
 
-## Linki
+## License
 
-- Repozytorium: https://github.com/JakubSledzki/RealTech  
-- Issues: https://github.com/JakubSledzki/RealTech/issues  
-- Wersja Minecrafta: 1.21.1  
-- Loader: NeoForge  
-- Język: Java 21
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Author
+
+- Jakub "Krogul" Śledzki
+
+RealTech Core is inspired by real-world metallurgy, mineral processing, mechanical engineering, and early industrial technology.
+
+---
+
+## Links
+
+- Repository: [https://github.com/JakubSledzki/RealTech](https://github.com/JakubSledzki/RealTech)
+- Issues: [https://github.com/JakubSledzki/RealTech/issues](https://github.com/JakubSledzki/RealTech/issues)
+- Minecraft: 1.21.1
+- NeoForge: 1.21.1
+- Java: 21
